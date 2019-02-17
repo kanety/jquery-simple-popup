@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <link rel="stylesheet" href="dist/jquery-simple-popup.css">
+  <script src="dist/jquery-simple-popup.js"></script>
+</head>
+<body>
+  <h1>Basic use</h1>
+  <button type="button" id="basic">Button</button>
+  <div id="basic_content" style="width: 100px;">
+    <div><a href="#">content1</a></div>
+    <div><a href="#">content2</a></div>
+  </div>
+  <script>
+  $('#basic').simplePopup('#basic_content');
+  </script>
+
+  <h1>Custom position</h1>
+  <button type="button" id="top_start">Top Start</button>
+    <div id="top_start_content" style="width: 120px;">
+    <div><a href="#">content1</a></div>
+    <div><a href="#">content2</a></div>
+  </div>
+  <script>
+  $('#top_start').simplePopup('#top_start_content', {
+    position: 'top-start'
+  });
+  </script>
+
+  <button type="button" id="top_end">Top End</button>
+   <div id="top_end_content" style="width: 120px;">
+    <div><a href="#">content1</a></div>
+    <div><a href="#">content2</a></div>
+  </div>
+  <script>
+  $('#top_end').simplePopup('#top_end_content', {
+    position: 'top-end'
+  });
+  </script>
+
+  <button type="button" id="left_start">Left Start</button>
+  <div id="left_start_content" style="width: 120px;">
+    <div><a href="#">content1</a></div>
+    <div><a href="#">content2</a></div>
+  </div>
+  <script>
+  $('#left_start').simplePopup('#left_start_content', {
+    position: 'left-start'
+  });
+  </script>
+
+  <button type="button" id="left_end">Left End</button>
+  <div id="left_end_content" style="width: 120px;">
+    <div><a href="#">content1</a></div>
+    <div><a href="#">content2</a></div>
+  </div>
+  <script>
+  $('#left_end').simplePopup('#left_end_content', {
+    position: 'left-end'
+  });
+  </script>
+
+  <button type="button" id="right_start">Right Start</button>
+  <div id="right_start_content" style="width: 120px;">
+    <div><a href="#">content1</a></div>
+    <div><a href="#">content2</a></div>
+  </div>
+  <script>
+  $('#right_start').simplePopup('#right_start_content', {
+    position: 'right-start'
+  });
+  </script>
+
+  <button type="button" id="right_end">Right End</button>
+  <div id="right_end_content" style="width: 120px;">
+    <div><a href="#">content1</a></div>
+    <div><a href="#">content2</a></div>
+  </div>
+  <script>
+  $('#right_end').simplePopup('#right_end_content', {
+    position: 'right-end'
+  });
+  </script>
+
+  <button type="button" id="bottom_start">Bottom Start</button>
+  <div id="bottom_start_content" style="width: 120px;">
+    <div><a href="#">content1</a></div>
+    <div><a href="#">content2</a></div>
+  </div>
+  <script>
+  $('#bottom_start').simplePopup('#bottom_start_content', {
+    position: 'bottom-start'
+  });
+  </script>
+
+  <button type="button" id="bottom_end">Bottom End</button>
+  <div id="bottom_end_content" style="width: 120px;">
+    <div><a href="#">content1</a></div>
+    <div><a href="#">content2</a></div>
+  </div>
+  <script>
+  $('#bottom_end').simplePopup('#bottom_end_content', {
+    position: 'bottom-end'
+  });
+  </script>
+
+  <br>
+
+  <button type="button" id="center">Center</button>
+  <div id="center_content" style="width: 120px;">
+    <div><a href="#">content1</a></div>
+    <div><a href="#">content2</a></div>
+  </div>
+  <script>
+  $('#center').simplePopup('#center_content', {
+    position: 'center'
+  });
+  </script>
+
+  <button type="button" id="mouse">Mouse</button>
+  <div id="mouse_content" style="width: 120px;">
+    <div><a href="#">content1</a></div>
+    <div><a href="#">content2</a></div>
+  </div>
+  <script>
+  $('#mouse').simplePopup('#mouse_content', {
+    position: 'mouse'
+  });
+  </script>
+
+  <h1>Context Menu</h1>
+  <div id="context">Click right button here</div>
+  <div id="context_content" style="width: 100px;">
+    <div><a href="#">content1</a></div>
+    <div><a href="#">content2</a></div>
+  </div>
+  <script>
+  $('#context').simplePopup('#context_content', {
+    trigger: 'contextmenu'
+  });
+  </script>
+
+  <h1>Modal</h1>
+  <button type="button" id="modal">Modal</button>
+  <div id="modal_content" style="width: 300px;">
+    <div><a href="#">content1</a></div>
+    <div><a href="#">content2</a></div>
+  </div>
+  <script>
+  $('#modal').simplePopup('#modal_content', {
+    modal: true
+  });
+  </script>
+</body>
+</html>
