@@ -1,6 +1,6 @@
 {
   "name": "@kanety/jquery-simple-popup",
-  "description": "",
+  "description": "A jquery plugin for simple popup contents",
   "version": "0.1.0",
   "author": "Yoshikazu Kaneta <kaneta@sitebridge.co.jp>",
   "repository": {

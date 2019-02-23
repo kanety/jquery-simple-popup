@@ -3,42 +3,36 @@ describe('jquery-simple-popup', function() {
     document.body.innerHTML = __html__['index.html'];
   });
 
-  it('has custom position', function() {
+  describe('position', function() {
     ['top-start', 'top-end', 'bottom-start', 'bottom-end',
      'left-start', 'left-end', 'right-start', 'right-end',
-     'center', 'mouse'].forEach(function(pos) {
-       var id = pos.replace('-', '_');
-       var content_id = id + '_content';
-       var $elem = $('#' + id);
-       var $content = $('#' + content_id);
-       $elem.simplePopup($content, {
-         position: pos
-       });
+     'center', 'mouse'
+    ].forEach(function(pos) {
+      it('shows content at custom position: ' + pos, function() {
+        var id = pos.replace('-', '_');
+        var content_id = id + '_content';
+        var $elem = $('#' + id);
+        var $content = $('#' + content_id);
+        $elem.simplePopup($content, {
+          position: pos
+        });
 
-       $elem.click();
-       expect($content.hasClass('popup-opened')).toEqual(true);
-     });
-  });
-
-  it('has context menu', function() {
-    var $elem = $('#context');
-    var $content = $('#context_content');
-    $elem.simplePopup($content, {
-      trigger: 'contextmenu'
+        $elem.click();
+        expect($content.hasClass('popup-opened')).toEqual(true);
+      });
     });
-
-    $elem.contextmenu();
-    expect($content.hasClass('popup-opened')).toEqual(true);
   });
 
-  it('has modal', function() {
-     var $elem = $('#modal');
-     var $content = $('#modal_content');
-     $elem.simplePopup($content, {
-       modal: true
-     });
+  describe('context menu', function() {
+    it('shows content by contextmenu', function() {
+      var $elem = $('#context');
+      var $content = $('#context_content');
+      $elem.simplePopup($content, {
+        trigger: 'contextmenu'
+      });
 
-     $elem.click();
-     expect($content.hasClass('popup-opened')).toEqual(true);
+      $elem.contextmenu();
+      expect($content.hasClass('popup-opened')).toEqual(true);
+    });
   });
 });

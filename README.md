@@ -1,6 +1,6 @@
 # jquery-simple-popup
 
-A jquery plugin for simplest popup contents.
+A jquery plugin for simple popup contents.
 
 ## Dependencies
 
@@ -28,6 +28,41 @@ Then run:
 
 ```javascript
 $('#basic').simplePopup('#basic_content');
+```
+
+Change popup position:
+
+```javascript
+$('#basic').simplePopup('#basic_content', {
+  position: 'right-start'
+});
+```
+
+Following positions are available:
+
+* top-start
+* top-end
+* bottom-start (Default)
+* bottom-end
+* left-start
+* left-end
+* right-start
+* right-end
+
+### Context menu
+
+```html
+<div id="context">Text</div>
+<div id="context_content">
+  <div>content</div>
+  <div>content</div>
+</div>
+```
+
+```javascript
+$('#context').simplePopup('#context_content', {
+  trigger: 'contextmenu'
+});
 ```
 
 ## License

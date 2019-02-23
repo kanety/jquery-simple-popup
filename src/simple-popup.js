@@ -4,7 +4,6 @@ import { NAMESPACE } from './consts';
 const DEFAULTS = {
   trigger: 'click',
   position: 'bottom',
-  modal: false
 };
 
 export default class SimplePopup {
@@ -17,26 +16,19 @@ export default class SimplePopup {
     this.$document = $(document);
 
     this.init();
-    this.bind();
+    this.bindDocument();
   }
 
   setDefaults(options) {
     if (options.trigger == 'contextmenu') {
       options.position = options.position || 'mouse';
     }
-    if (options.modal) {
-      options.position = options.position || 'center';
-    }
   }
 
   init() {
-    if (this.options.modal) {
-      this.$modal = $(`<div class="${NAMESPACE}-modal">`);
-      this.$modal.append(this.$content);
-      this.$document.find('body').append(this.$modal);
-    }
-
     this.$content.addClass(NAMESPACE);
+    this.unbind();
+    this.bind();
   }
 
   bind() {
@@ -45,9 +37,11 @@ export default class SimplePopup {
       e.stopPropagation();
       this.mousePosX = e.pageX;
       this.mousePosY = e.pageY;
-      this.open();
+      this.toggle();
     });
+  }
 
+  bindDocument() {
     this.$document.on(`click.${NAMESPACE}`, (e) => {
       this.close();
     });
@@ -55,23 +49,27 @@ export default class SimplePopup {
 
   unbind() {
     this.$button.off(`.${NAMESPACE}`);
+  }
+
+  unbindDocument() {
     this.$document.off(`.${NAMESPACE}`);
   }
 
-  open() {
-    if (this.options.modal) {
-      this.$modal.addClass('modal-opened');
+  toggle() {
+    if (this.$content.hasClass('popup-opened')) {
+      this.close();
     } else {
-      let [top, left] = this.position();
-      this.$content.css({ top: top, left: left });
+      this.open();
     }
+  }
+
+  open() {
+    let [top, left] = this.position();
+    this.$content.css({ top: top, left: left });
     this.$content.addClass('popup-opened');
   }
 
   close() {
-    if (this.options.modal) {
-      this.$modal.removeClass('modal-opened');
-    }
     this.$content.removeClass('popup-opened');
   }
 
